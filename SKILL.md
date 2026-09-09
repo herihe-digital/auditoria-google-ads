@@ -927,6 +927,32 @@ primero.** La unión real era 73,1 %.
 3. Cuando dos hallazgos comparten más de la mitad del dinero, dilo: *«estos dos son en buena parte el
    mismo gasto visto de dos maneras; arregla primero el de arriba y vuelve a medir»*.
 
+### Toda pregunta pendiente va con el dinero que destraba
+
+Pedir un dato sin decir cuánto vale es pedir un favor. Con la cifra al lado, es una decisión de
+treinta segundos que el dueño toma solo.
+
+> **Regla:** cada `NO EVALUABLE` y cada pregunta sin responder se escribe con **cuánto gasto queda sin
+> juzgar por su culpa** —en plata y en porcentaje del gasto visible— y **qué export o qué respuesta**
+> lo destraba.
+
+Mal: *«no puedo clasificar irrelevancia ni geografía porque falta la entrevista»*.
+
+Bien **[medido en una cuenta real]**:
+
+> *No puedo juzgar 51 términos que suman **80.071 CLP — el 9,8 % del gasto que este archivo ve**,
+> con 1 conversión entre todos. Son consultas que **parecen** de otro negocio: nombres de plataformas
+> de infoproductos, de marketplaces y la palabra «afiliados». Pero «parecen» no alcanza — si resulta
+> que vendes justamente en esas plataformas, negativarlas te corta ventas. Dime en una frase qué
+> vendes y en qué ciudades atiendes, y esos 80.071 pasan de invisibles a decididos.*
+
+Lo mismo aplica a los exports: no digas «pide el informe de páginas de destino». Di **cuánto gasto
+está atrapado** en el hallazgo que ese informe resolvería.
+
+**Y ordena las preguntas por el dinero que liberan, no por el orden en que se te ocurrieron.** Una
+pregunta que destraba el 40 % del gasto y una que destraba el 0,3 % no valen lo mismo, y el dueño no
+tiene por qué adivinar cuál es cuál.
+
 ### «No encontré nada» y «no pude mirar» van en líneas distintas
 
 Al cerrar, el informe lista por separado:
