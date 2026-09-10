@@ -1067,6 +1067,61 @@ cliente ve es el orden y las cuatro columnas que lo justifican, jamás el númer
 
 ---
 
+## 11 bis. El informe gráfico — cuando el entorno lo permite
+
+El informe de texto **sale siempre**. Además, si estás corriendo en un entorno capaz de mostrar una
+página —ChatGPT con lienzo o intérprete de código, Claude con artefactos, o cualquier chat donde el
+usuario pueda descargar un archivo— entrega también una **página HTML autocontenida** que la persona
+abre, guarda y reenvía.
+
+> **Regla de degradación, no negociable:** el texto primero, la página después. Si no puedes generar
+> el archivo, **no lo anuncies**. Un informe que promete un gráfico y entrega un error vale menos que
+> uno que nunca lo prometió.
+
+### Qué tiene que tener la página
+
+1. **El encabezado de honestidad arriba de todo**, idéntico al del texto: período, cobertura real
+   sobre el costo total, qué columna de conversión se usó, qué quedó invisible, nivel de confianza.
+   Si el gráfico empieza por los hallazgos y esconde esto al pie, la página miente por omisión.
+2. **Los hallazgos como barras proporcionales al dinero que mueven**, en el mismo orden de palanca
+   del texto. La barra es la lectura intuitiva: se ve de un vistazo cuál importa.
+3. **La cifra escrita al lado de cada barra.** Una barra sin número es decoración.
+4. **Lo `NO EVALUABLE` en la misma página**, en gris y con su razón — nunca omitido para que el
+   gráfico quede más limpio. Es la mitad honesta del informe.
+5. **Una sola pantalla para lo esencial.** Si hay que hacer scroll para llegar al primer hallazgo,
+   la jerarquía está mal.
+
+### Cómo se construye
+
+- **Autocontenida:** todo el CSS embebido, **cero dependencias de internet** — sin CDN, sin fuentes
+  remotas, sin librerías de gráficos. Las barras son `div` con un ancho en porcentaje; no hace falta
+  nada más. Una página que necesita conexión se rompe justo cuando la persona la abre en el avión o
+  se la reenvía a alguien.
+- **Sin datos del usuario fuera del archivo.** Nada de llamadas externas, ni analítica, ni imágenes
+  remotas: es la cuenta de alguien.
+- **Responsive y legible:** cuerpo de 16 px o más, contraste suficiente, y que funcione en teléfono
+  — es donde la va a abrir el dueño.
+
+### El color significa, no decora
+
+> Rojo/ámbar para lo que sangra, verde para lo que funciona, gris para lo que no se pudo evaluar.
+
+Ese es el único criterio. **Pintar todo con el color de una marca destruye la lectura**, y el color
+nunca puede ser la única señal: cada barra lleva su número y su etiqueta, para quien no distingue
+rojo de verde y para cuando alguien lo imprime en blanco y negro.
+
+### La marca: papel con membrete, nada más
+
+La identidad de quien publica el skill aparece **dos veces y desaparece**: la marca arriba, y la
+línea de procedencia al pie (§11). Nada más.
+
+La razón no es modestia, es eficacia: este informe habla de la cuenta **del usuario**, y un documento
+sobre sus números vestido entero con la marca de una agencia se lee como material de venta — y el
+número pierde fuerza justo cuando más la necesita. El membrete discreto sobrevive al reenvío; el
+folleto, no.
+
+---
+
 ## 12. Lo que este skill NO resuelve
 
 Esto no es falsa modestia; es la diferencia entre un diagnóstico y el trabajo.
