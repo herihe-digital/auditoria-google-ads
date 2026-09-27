@@ -1,5 +1,31 @@
 # Cambios
 
+## v3.0 — 2026-09-27
+
+- **La IA etiqueta, el programa decide.** Nuevo `auditor.py` (Python estándar, sin internet): lee el export, arma los
+  temas, suma, calcula conversiones esperadas, simula el daño de cada negativa contra todo el archivo y escribe el
+  informe y la ficha. La IA sólo conversa, etiqueta cada búsqueda con una lista cerrada (o «no sé») y copia lo que el
+  programa imprime. Las cifras dejan de depender de que la IA sume bien.
+- **Lo que vendes, protegido por construcción:** servicio principal y secundarios nunca reciben pausa, negativa ni baja
+  de puja. Si la etiqueta de la IA contradice lo que dijiste, gana tu respuesta y la búsqueda queda como pregunta.
+- **Tres señales para cortar:** una búsqueda ajena se corta si tú la marcaste como algo que no vendes, o si coinciden
+  la etiqueta de la IA, la lista de palabras del programa y una segunda pregunta («¿quien busca esto podría
+  comprarte?»). Si no, sale «para confirmar», con su dinero.
+- **Ficha literal:** el programa rechaza cualquier texto de la ficha que no sea una frase tuya; lo que infiere la IA
+  va a «Supuestos».
+- **La ficha no pierde lo que dijiste:** cada «no vendemos X» y cada «X sí la vendemos» tiene que quedar en ella, y
+  el valor de un tema partido sale sólo de lo que dijiste del resto («lo demás 2»); si no lo dijiste, el resto queda
+  como pregunta.
+- **Una respuesta que no se reescribe:** la primera línea y «Qué hacer primero» los escribe el programa; en el chat va
+  el informe corto y el detalle queda en `informe_completo.md`.
+- **La oferta de la agencia la decide el programa**, sólo con un gatillo medido.
+- **Ubicaciones:** con el informe «Ubicaciones coincidentes», el gasto fuera de la zona sale para confirmar (exclusión
+  de ubicación, nunca automática) y el tráfico por «área de interés» se compara con el físico antes de sugerir
+  «Presencia».
+- **Rendimiento sin cortes automáticos:** lo que tiene evidencia y no es de lo que vendes sale como pregunta.
+- **SKILL.md de 678 a ~260 líneas**: las reglas de cálculo viven en el código.
+- Sale de esta versión el informe gráfico en HTML; vuelve cuando lo genere el programa.
+
 ## v2.3 — 2026-09-27
 
 - **Archivo grande sin código:** con más de 300 filas y sin ejecución de código, la IA pide activar el análisis de

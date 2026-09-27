@@ -1,8 +1,12 @@
 # Auditoría de Google Ads con ChatGPT o Claude (es-CL)
 
-Un prompt (skill) —un documento de instrucciones— que convierte a ChatGPT o a Claude en auditor de cuentas de
-Google Ads. Le das los informes que tú mismo descargas de la interfaz, le cuentas tu negocio en un par de minutos, y
-te dice **dónde está el dinero** y qué búsquedas de otro negocio conviene cortar primero.
+Un skill —un documento de instrucciones más un programa pequeño— que convierte a ChatGPT o a Claude en auditor de
+cuentas de Google Ads. Le das los informes que tú mismo descargas de la interfaz, le cuentas tu negocio en un par de
+minutos, y te dice **dónde está el dinero** y qué búsquedas de otro negocio conviene cortar primero.
+
+Desde la v3 el trabajo se reparte: **la IA conversa contigo y etiqueta cada búsqueda; el programa `auditor.py` hace
+todas las cuentas y toma las decisiones** (qué se corta, qué se protege, qué te pregunta). Así las cifras cuadran y
+lo que vendes no se toca, aunque la IA se equivoque al etiquetar.
 
 **Sin credenciales, sin tokens, sin darle acceso a tu cuenta a nadie.** Corre dentro de tu propio ChatGPT o Claude,
 con archivos que exportas en tres clics.
@@ -16,17 +20,23 @@ con archivos que exportas en tres clics.
 1. **Descarga el informe.** Google Ads → Informes → **Términos de búsqueda**, últimos 90 días. En «Columnas», añade:
    **Campaña**, **Grupo de anuncios**, **Tipo de concordancia** (o «Concordancia»), Clics, Impresiones, Costo,
    **Conversiones**, **Todas las conversiones** y **Valor de conversión**. Descargar → CSV, con todas las filas.
-   Adjúntalo tal como te lo dio Google, sin abrirlo ni guardarlo en Excel.
+   Adjúntalo tal como te lo dio Google, sin abrirlo ni guardarlo en Excel. **Recomendado:** descarga también
+   **Ubicaciones coincidentes** (Campañas → Informes y estadísticas → Cuándo y dónde se mostraron los anuncios →
+   Ubicaciones coincidentes → descargar), mismo período: con él revisa el gasto fuera de tu zona y el tráfico por
+   «área de interés».
 2. **Abre un chat nuevo** en ChatGPT o Claude **con el análisis de datos activado** («Análisis de datos» en ChatGPT,
-   la herramienta de análisis en Claude): así las cuentas se hacen con código y un archivo grande cabe entero.
-   Adjunta **[`SKILL.md`](SKILL.md)** y el informe, y escribe: *«Audita esta cuenta siguiendo el documento adjunto.»*
+   la herramienta de análisis en Claude). Adjunta **[`SKILL.md`](SKILL.md)**, **[`auditor.py`](auditor.py)** y el
+   informe, y escribe: *«Audita esta cuenta siguiendo el documento adjunto.»* `auditor.py` sólo usa Python estándar,
+   no se conecta a internet y no toca tu cuenta: puedes leerlo entero antes de usarlo.
 3. **Responde la entrevista.** La primera respuesta es corta: lo que el archivo deja ver (cobertura, si la medición
    cuadra) y unas pocas preguntas —qué vendes y dónde, cuál de tus temas es tu **servicio principal**, tu marca, qué
    hacer con cada competidor que aparece y cómo cierras la venta—. Con tus respuestas viene la auditoría, y al final
    una **ficha del negocio**: guárdala y pégala al comienzo de la próxima vez. Si prefieres que siga sin responder,
    escribe *«sigue sin mis respuestas»* y el informe declara sus supuestos.
 
-En **Claude Code** puedes dejarlo instalado copiando el archivo a `~/.claude/skills/auditor-google-ads/SKILL.md`.
+En **Claude Code** puedes dejarlo instalado copiando `SKILL.md` y `auditor.py` a `~/.claude/skills/auditor-google-ads/`.
+Sin análisis de datos, el skill hace la entrevista y te entrega la lista de búsquedas para revisar, pero no inventa
+cuentas: sin el programa no hay totales ni negativas de frase.
 
 ## Qué hace, en orden
 
@@ -36,6 +46,10 @@ En **Claude Code** puedes dejarlo instalado copiando el archivo a `~/.claude/ski
   mismo, otras ciudades, marketplaces, otros rubros y los competidores donde no quieres aparecer. Salen como
   negativas de frase en listas temáticas, listas para pegar, con cada término que bloquean a la vista. Estas no
   necesitan volumen: las decide tu negocio, no los números.
+- **Revisa dónde se gasta** (con el informe de ubicaciones): lo que cae fuera de tu zona sale para confirmar, como
+  exclusión de ubicación, y el tráfico por «área de interés» se compara con el físico antes de sugerir nada. En 7 de
+  8 cuentas medidas que lo usaban, ese tráfico convertía en proporción a su costo: cambiar a «Presencia» por regla
+  corta ventas.
 - **Pregunta por cada competidor**: *«¿quieres aparecer cuando buscan a X?»* No → negativa. Sí → campaña propia. No
   sé → te muestra sus números. Un nombre que no conoce nunca se decide solo.
 - **Después busca el dinero grande**, que casi nunca está en una negativa por rendimiento:
@@ -101,6 +115,7 @@ escríbenos si quieres que lo miremos: **[herihe.digital](https://herihe.digital
 | Lectura del archivo real de la interfaz | el export es **UTF-16 con tabulaciones**, no un CSV común: la lectura ingenua falla o devuelve una sola columna sin error |
 | Filas `Total:` del pie | son hasta **ocho**, no una; incluirlas infla toda la cuenta **7,18×** |
 | Dos pruebas a ciegas, con otro modelo y sin contexto | 14 defectos encontrados y corregidos |
+| v3: el programa, contra controles con datos reales | protege un servicio secundario aunque la IA lo etiquete mal, no corta una búsqueda que convirtió y no negativa a un competidor sin tu respuesta |
 
 Los cambios de cada versión están en [`CHANGELOG.md`](CHANGELOG.md).
 
