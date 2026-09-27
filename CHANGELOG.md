@@ -1,5 +1,13 @@
 # Cambios
 
+## v2.2 — 2026-09-27
+
+- **Simulación visible:** toda negativa de frase lleva la línea «Simulación: N términos contienen "x"», con cada término
+  y su grupo; si uno cae en un tema o grupo 1 o 2, o convirtió, la negativa baja a exacta. Sin esa línea no hay frase.
+- **Ficha de formato fijo:** temas copiados con el número del dueño; «No vende» sólo con lo marcado 3; supuestos aparte.
+- **Cuentas más livianas:** con código, todo en código; sin código, sólo las cifras que sostienen una recomendación o
+  una negativa. Conversiones esperadas con ejemplo numérico (el menor de los dos valores) y un atajo por grupo.
+
 ## v2.1 — 2026-09-27
 
 - **Cifras agregadas:** toda suma nombra sus filas (o «n términos»), se cuadra con la fila de total y, si hay

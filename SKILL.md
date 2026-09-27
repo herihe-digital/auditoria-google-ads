@@ -75,7 +75,8 @@ depende de qué es su núcleo.
 ### Turno 2 — auditar
 
 Con las respuestas armas la **ficha del negocio** (§2.3), corres §4 a §12 y entregas el informe (§14): si el usuario
-hizo una pregunta directa, la primera línea la responde; al final devuelve la ficha.
+hizo una pregunta directa, la primera línea la responde; al final devuelve la ficha. Las cuentas siguen §4.7: con
+código, en código; sin código, sólo las que sostienen una recomendación o una negativa.
 
 ### Excepciones
 
@@ -152,21 +153,23 @@ los primeros puestos. Genera candidatos; nunca clasifica.
 
 ### 2.3 La ficha del negocio
 
-Gobierna G1, G1b, G2 y G3. **Transcribe las respuestas del dueño, no tu lectura de ellas**: lo que infieras va marcado
-«(supuesto)» y nunca rebaja un tema declarado (lo que el dueño marcó 1 o 2 jamás aparece en «No vende»). El informe la
-devuelve completa al final para que el dueño la pegue al comienzo de la próxima auditoría:
+Gobierna G1, G1b, G2 y G3, y tiene **formato fijo**: cada tema se copia con el número que le puso el dueño, tal cual
+(si partió un tema, se copia partido); «No vende» lleva **sólo** lo marcado 3 y lo que P1 dice que no vende; lo que
+infieras va en «Supuestos» y en ninguna otra línea. El informe la devuelve completa al final, para pegarla en la
+próxima auditoría:
 
 ```
 FICHA DEL NEGOCIO — <fecha>
-Negocio: <qué vende, a quién>                Zona que atiende: <…>
-No vende (y lo confunden con): <…>
-Núcleo — servicio principal: <temas y sus palabras>
-Secundario: <temas>                           No lo vende: <temas>
-Marca y variantes: <…>
-Competidores · no aparecer: <…> · sí aparecer: <…> · pendiente: <…>
-Otros negocios parecidos: <…>
-Cómo se cierra la venta: <…>                  Conversiones del archivo vs reales: <…>
-CPA que aguanta / ticket: <… o «no declarado»>
+Negocio (P1): <sus palabras>                  Zona (P1): <…>
+Temas (P1b, copiados tal cual):
+  <tema a> → 1
+  <tema b> → 2
+  <tema c> → 3 «<nota del dueño, si la dio>»
+No vende: <sólo los temas → 3 y lo que P1 declara>
+Marca y variantes (P2): <…>
+Nombres (P3): «<nombre>» → <a–e> · ¿aparecer? <sí / no / no sé>
+Cómo se cierra la venta (P4): <…>             CPA / ticket (P6): <… o «no declarado»>
+Supuestos (míos, no del dueño): <…>
 ```
 
 ## 3. Qué necesitas
@@ -217,10 +220,10 @@ una cuenta chilena.
 6. Clics > impresiones → fila `ARTEFACTO`, fuera del CTR (**[medido]** 7 filas con 2 clics sobre 1 impresión
    envenenaban el detector). El mismo término en varias campañas se suma para las compuertas, pero **guarda la vista
    sin sumar**: ahí vive 5.3. La columna de valor, si existe, se lee siempre.
-7. **Cifras agregadas.** Toda suma o promedio (por tema, grupo, bloque o lista) nombra las filas que sumó o dice «n
-   términos», y se cuadra con la fila de total del archivo: si los temas no suman el total, di qué quedó fuera.
-   Conversiones con los decimales del archivo, sin redondear ni inventar. Si el entorno ejecuta código (análisis de
-   datos de ChatGPT, herramienta de análisis de Claude), calcula ahí; en la duda, muestra la cuenta.
+7. **Cuentas.** Si el entorno ejecuta código (análisis de datos de ChatGPT, herramienta de análisis de Claude),
+   **todas** las cuentas se hacen ahí y no se rehacen a mano. Sin código, calculas —y muestras la cuenta— sólo de los
+   números que sostienen una recomendación o una negativa: cada suma nombra sus filas o dice «n términos» y se cuadra
+   con la fila de total. El resto sale sin número derivado. Conversiones con los decimales del archivo.
 
 ## 5. Cobertura: cuánto del dinero NO estás viendo (va en el encabezado)
 
@@ -343,16 +346,15 @@ conversiones, CVR 13,0 % contra 9,4 % de la cuenta [medido]** —, y coincidió 
 (`fumigación temuco`, `adocretos temuco`, `vigilante privado temuco`). `\btemu\b` nunca toca Temuco.
 
 1. **Muestra todo lo que la negativa bloquearía** —cada término con costo, clics y conversiones— para que el dueño
-   tache lo que no corresponde. Se confirma sobre los términos, no sobre la etiqueta: preguntar «¿vendes en Temu?» y
-   recibir «no» es la pregunta correcta sobre el objeto equivocado.
+   tache lo que no corresponde. Se confirma sobre los términos, no sobre la etiqueta del balde.
 2. **Un balde con ≥ 1 conversión no se negativa en bloque.** La negativa se acota para no tocar el término que
    convirtió, y ese término va como pregunta al dueño (si convirtió alguien que buscaba trabajo, además hay un
    hallazgo de medición).
 3. **Competidores: decide el dueño, con la pregunta de P3.** **no** → negativa de frase con su marca, en la lista
    «Competidores». **sí** → campaña propia de competencia, con su presupuesto y su medición, separada de la genérica.
    **no sé** (o sin respuesta) → el informe muestra sus números (costo, clics, conversiones, CPC contra la cuenta) y
-   queda «pendiente» en la ficha. No hay regla por defecto porque **[medido]** la marca de un competidor era el **44 %
-   de las conversiones** de una cuenta, con CVR superior a la genérica, y en otra el 0,1 % del gasto.
+   queda como «no sé» en la ficha. No hay regla por defecto porque **[medido]** la marca de un competidor era el
+   **44 % de las conversiones** de una cuenta, con CVR superior a la genérica, y en otra el 0,1 % del gasto.
 4. **Sin respuestas del dueño**, G2 entrega candidatas con su dinero, nunca negativas.
 
 ### G3 — Geografía fuera de cobertura
@@ -436,6 +438,10 @@ esperadas ≥ 3,0 y CVR < base/3     → bajar puja, no negativar
 esperadas < 3,0                    → «SIN EVIDENCIA», a un anexo agregado
 ```
 
+Ejemplo (cifras ilustrativas): 30 clics × CVR base 10 % = 3,0; $26.000 ÷ CPA base $10.000 = 2,6 → esperadas = **2,6**:
+bajo 3,0, «SIN EVIDENCIA», aunque la prueba de clics diera 3,0. Atajo: las esperadas nunca superan costo ÷ CPA base;
+si el término de más costo de un grupo no llega a 3,0 por esa vía, ninguno del grupo llega y G8 no pide más cálculo.
+
 **[medido]** términos que llegaron aquí en las cuatro cuentas: **cero**. Con pocos clics, la mejor estimación de la
 CVR no es cero: `(conversiones + k × CVR_base) ÷ (clics + k)`, con `k ≈ 40` (ajustado en cuatro cuentas entre 30 y 80
 **[medido]**). En una cuenta al 8,25 %, cero conversiones en 2 clics —la mediana de los «cero»— se estima en
@@ -462,8 +468,7 @@ referencia = CPA de la concordancia más estricta con ≥ 5 conversiones
 exceso     = Σ conversiones(bloque) × (CPA(bloque) − CPA(referencia)), en los bloques que la superan
 ```
 
-Se declara con las conversiones que lo sostienen y como excedente frente a la mejor práctica de la propia cuenta:
-bajar la amplia también baja volumen, y se dice en la misma frase.
+Se declara con sus conversiones y como excedente frente a la propia cuenta: bajar la amplia también baja volumen.
 
 **5.3 — Auto-competencia.** El mismo término comprado por varias de tus campañas a precios distintos. **[medido]** en
 la florería: **452 términos (48,4 % del gasto)** en más de una campaña, CPC de 67 a 1.607 para la misma consulta
@@ -476,16 +481,18 @@ a ROAS 16,7–20,1.
 
 ## 10. Cómo se escribe una negativa
 
-1. **Simulación de daño, siempre.** Aplica la negativa contra el archivo completo, con frontera de palabra. Si captura
-   **cualquier** término con conversiones (en la mayor de las dos columnas) o de un tema marcado **1 o 2** en P1b —el
-   principal **y también el secundario**, con sus sinónimos y los términos del grupo de anuncios que lleva el nombre
-   de ese tema (un grupo «Embudo…» es el tema embudos o *funnels*)—, se acota o se descarta y se reporta como «daño
-   evitado». **[medido]** una negativa de frase `flores` mataba `flores a domicilio rancagua`: 172 clics, 22,97
-   conversiones.
-2. **Irrelevancia confirmada (G2, G3) → frase sobre la palabra**: `"sueldo"`, `"postular"`, `"curso"`. Google no
-   extiende las negativas a variantes cercanas: escribe tú singular, plural, sinónimos y la forma sin tilde
-   (`"curso"`, `"cursos"`, `"capacitación"`, `"capacitacion"`). Si choca con el núcleo, alarga la frase
-   (`"ofertas de trabajo"`, `"busco trabajo"`) hasta que la simulación salga limpia.
+1. **Simulación de daño, visible, antes de toda negativa de frase o de palabra.** El informe escribe una línea por
+   palabra (con sus variantes): `Simulación: N términos contienen "<x>": «término» (grupo) · «término» (grupo) · …`,
+   con **todos** los términos del archivo que la contienen, con o sin costo, y el grupo de anuncios de cada uno (si
+   son más de 20, el conteo por grupo, y completos los de cualquier grupo o tema 1 o 2). Si alguno tiene conversiones
+   (en la mayor de las dos columnas) o cae en un tema marcado **1 o 2** —principal **o secundario**— o en su grupo de
+   anuncios (un grupo «Embudo…» es del tema embudos), la negativa **baja a exacta** sobre cada término irrelevante
+   (`[término]`) o se descarta como «daño evitado». **Una negativa de frase sin su línea de simulación no existe.**
+   **[medido]** una negativa de frase `flores` mataba `flores a domicilio rancagua`: 172 clics, 22,97 conversiones.
+2. **Irrelevancia confirmada (G2, G3) → frase sobre la palabra, si su simulación salió limpia**: `"sueldo"`,
+   `"postular"`, `"curso"`. Google no extiende las negativas a variantes cercanas: escribe tú singular, plural,
+   sinónimos y la forma sin tilde (`"curso"`, `"cursos"`, `"capacitación"`, `"capacitacion"`). Una frase más larga
+   (`"ofertas de trabajo"`) sólo vale con su propia línea de simulación limpia.
 3. **En listas temáticas** con el nombre de la categoría (Empleo, Formación, Gratis, Hazlo tú mismo, Otras zonas,
    Marketplaces, Usados, Otros negocios, Competidores), para aplicarlas a varias campañas y revisarlas de una vez.
 4. **Rendimiento (G8) → exacta sobre el término completo** (`[término]`). **Nunca negativa amplia.**
@@ -514,8 +521,7 @@ mueren (repórtalas aparte).
 
 ## 12. El historial de cambios: lo que pasó y lo que alguien hizo
 
-Herramientas → **Historial de cambios** → el rango de las dos ventanas → Descargar. Convierte «tu cuenta empeoró» en
-«empeoró cuando se hizo esto, el 14 de julio».
+Herramientas → **Historial de cambios** → el rango de las dos ventanas → Descargar: dice *cuándo* y *quién*.
 
 - **Lee primero su rango** (segunda línea del preámbulo): 0 filas en un rango que cubre las ventanas = nadie tocó la
   cuenta (hallazgo); un rango que no cubre el quiebre = el archivo no sirve, pide el período correcto.
@@ -538,7 +544,7 @@ Herramientas → **Historial de cambios** → el rango de las dos ventanas → D
 4. Decidir por el dueño qué es un nombre desconocido, o negativar a un competidor sin su respuesta.
 5. Negativar la marca propia, sus variantes, el dominio o una navegacional propia; o proteger como navegacional el
    teléfono, dominio o dirección de **otra empresa**.
-6. Negativar por substring, o sin mostrar todo lo que la negativa bloquea.
+6. Negativar por substring, o emitir una negativa de frase sin su línea de simulación (§10).
 7. Emitir una negativa que captura un término con conversiones o de un tema que el dueño vende (§10).
 8. Negativar por rendimiento con cero clics, con menos de 3 conversiones esperadas, a un miembro de un grupo cuya
    variante convirtió, o dentro de un contenedor muerto o enfermo.
@@ -577,9 +583,11 @@ cambió, nunca POR QUÉ); y abre por lo que cambió.
 **El bloque de limpieza**, una lista por categoría con todo lo que bloquea:
 
 ```
-Lista «Empleo» — negativas de frase: "sueldo" · "sueldos" · "postular" · "ofertas de trabajo"
-  bloquea: «término» ($costo · clics · conv) · «término» (…)  → $<total> (<x> % del gasto visible)
-  simulación: no toca términos con conversiones ni temas que vendes | descartada "<negativa>": tocaba «<término>»
+Lista «Empleo» → $<total> (<x> % del gasto visible) · <N> conv
+  Simulación: 2 términos contienen "sueldo"/"sueldos": «sueldo <cargo>» (<grupo>) · «sueldos <rubro>» (<grupo>) → limpia
+  → frase: "sueldo" · "sueldos"
+  Simulación: 3 términos contienen "trabajo": «ofertas de trabajo» (<grupo>) · «guantes de trabajo» (<grupo>, tema 2) · «trabajo <comuna>» (<grupo>)
+  → toca un tema 2, baja a exacta: [ofertas de trabajo] · [trabajo <comuna>]
 ```
 
 ### 🚨 El dinero de los hallazgos se superpone. Nunca lo sumes.
