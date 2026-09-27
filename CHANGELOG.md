@@ -1,5 +1,16 @@
 # Cambios
 
+## v2.1 — 2026-09-27
+
+- **Cifras agregadas:** toda suma nombra sus filas (o «n términos»), se cuadra con la fila de total y, si hay
+  ejecución de código, se calcula ahí; en la duda, se muestra la cuenta.
+- **La simulación de daño protege los temas 1 y 2** (principal y secundario, con sinónimos y el grupo de anuncios del
+  tema); si el dueño parte un tema, sólo es irrelevante la parte que nombró como 3.
+- **La ficha transcribe al dueño:** lo inferido va como «(supuesto)» y nunca rebaja un tema declarado.
+- **La recomendación exige un gatillo nombrado** (medición, G5, 5.3, 5.2, G6) y ningún hallazgo se agranda más allá
+  de su muestra. Si el usuario hizo una pregunta directa, el informe la contesta en su primera línea.
+- **Turno 1 más liviano:** sólo encabezado, totales, cobertura, medición y temas; nada término a término.
+
 ## v2 — 2026-09-27
 
 - **El primer turno es la entrevista.** Al recibir el archivo, la IA responde sólo con lo que puede leer (cobertura,
