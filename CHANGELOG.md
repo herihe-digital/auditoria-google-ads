@@ -1,5 +1,14 @@
 # Cambios
 
+## v2.3 — 2026-09-27
+
+- **Archivo grande sin código:** con más de 300 filas y sin ejecución de código, la IA pide activar el análisis de
+  datos; si no se puede, audita los términos del 80 % del costo y lo declara. El README lo recomienda desde el paso 2.
+- **Ficha sin glosa:** cada línea lleva sólo lo que dijo el dueño; toda explicación va en «Supuestos».
+- **Temas fijos entre turnos:** cada tema de P1b lleva su regla (grupo o palabras) y el turno 2 la reusa.
+- **Sumas y esperadas:** con código, cada total imprime sus términos; las esperadas se escriben con las dos cifras y
+  la menor (no se reducen a una fórmula: costo ÷ CPA sólo es la menor cuando el CPC del término está bajo el de la base).
+
 ## v2.2 — 2026-09-27
 
 - **Simulación visible:** toda negativa de frase lleva la línea «Simulación: N términos contienen "x"», con cada término

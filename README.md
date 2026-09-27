@@ -17,8 +17,9 @@ con archivos que exportas en tres clics.
    **Campaña**, **Grupo de anuncios**, **Tipo de concordancia** (o «Concordancia»), Clics, Impresiones, Costo,
    **Conversiones**, **Todas las conversiones** y **Valor de conversión**. Descargar → CSV, con todas las filas.
    Adjúntalo tal como te lo dio Google, sin abrirlo ni guardarlo en Excel.
-2. **Abre un chat nuevo** en ChatGPT o Claude, adjunta **[`SKILL.md`](SKILL.md)** y el informe, y escribe:
-   *«Audita esta cuenta siguiendo el documento adjunto.»*
+2. **Abre un chat nuevo** en ChatGPT o Claude **con el análisis de datos activado** («Análisis de datos» en ChatGPT,
+   la herramienta de análisis en Claude): así las cuentas se hacen con código y un archivo grande cabe entero.
+   Adjunta **[`SKILL.md`](SKILL.md)** y el informe, y escribe: *«Audita esta cuenta siguiendo el documento adjunto.»*
 3. **Responde la entrevista.** La primera respuesta es corta: lo que el archivo deja ver (cobertura, si la medición
    cuadra) y unas pocas preguntas —qué vendes y dónde, cuál de tus temas es tu **servicio principal**, tu marca, qué
    hacer con cada competidor que aparece y cómo cierras la venta—. Con tus respuestas viene la auditoría, y al final

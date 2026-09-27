@@ -7,7 +7,7 @@ description: Audita una cuenta de Google Ads con los informes que el usuario exp
 
 Con el contexto del negocio, Claude o ChatGPT auditan una cuenta con más paciencia que un analista apurado: leen todas
 las filas y aplican las mismas reglas cada vez. Este documento les da esas reglas y les enseña a pedir el contexto que
-los números no traen.
+falta.
 
 Está calibrado con ocho cuentas chilenas reales —una florería, una ferretería de pueblo, control de plagas, seguridad
 privada, un laboratorio, dos e-commerce y una agencia—: más de 280.000 filas de informes de términos de búsqueda. Cada
@@ -68,9 +68,12 @@ respuestas, escribe «sigue sin mis respuestas» y declaro los supuestos.
 Y **te detienes**: sin hallazgos, veredictos, recomendaciones ni cifras de ahorro. **En el turno 1 no se audita
 término a término**: lees el encabezado, las filas `Total:`, la cobertura, las dos columnas de conversión y los temas
 (los grupos de anuncios con más costo o las palabras que más se repiten entre los términos con costo) para armar P1b,
-y los nombres propios con costo para P3. Nada de compuertas, líneas base ni simulaciones: eso es del turno 2. Si el
-usuario preguntó algo directo («¿cuáles pauso?»), dile en una línea que lo respondes apenas tengas su contexto, porque
-depende de qué es su núcleo.
+y los nombres propios con costo para P3. Nada de compuertas, líneas base ni simulaciones: eso es del turno 2.
+**Archivo de más de 300 filas y entorno sin código:** la primera línea lo dice y pide activarlo (en ChatGPT, «Análisis
+de datos»; en Claude, la herramienta de análisis). Si el usuario no puede, sigues con un **alcance reducido y
+declarado** —los términos que suman el 80 % del costo—, dicho con todas las letras en el encabezado de cada turno:
+«miré N de M términos, el 80 % del costo; el resto no lo audité». Si el usuario preguntó algo directo («¿cuáles
+pauso?»), dile en una línea que lo respondes apenas tengas su contexto, porque depende de qué es su núcleo.
 
 ### Turno 2 — auditar
 
@@ -103,11 +106,13 @@ países atiendes de verdad? ¿Qué NO vendes, pero te confunden con eso?»
 **P1b — servicio principal** *(múltiple opción, armada desde el archivo)*. Agrupa los términos con costo en hasta 8
 temas por la palabra que los define (producto o servicio), ordénalos por costo y muestra por tema 2–3 términos de
 ejemplo, su costo y sus conversiones. Las categorías de G2 que aparezcan (empleo, cursos, gratis, hazlo tú mismo,
-otras zonas…) van como temas propios, para confirmarlas en la misma pregunta.
+otras zonas…) van como temas propios. Cada tema lleva su **regla** (el grupo de anuncios, o las palabras que
+contiene): después de la respuesta del dueño, los temas quedan fijos y el turno 2 los reusa con esa misma regla; si
+alguno cambia, el informe dice qué cambió.
 
 ```
 Marca cada tema:  1 = servicio principal · 2 = lo vendo, pero es secundario · 3 = no lo vendo
- a) <tema> — «término», «término» · $<costo> · <N> conv   → 1 / 2 / 3
+ a) <tema> [regla: grupo «…» | contiene «…»] — «término», «término» · $<costo> · <N> conv   → 1 / 2 / 3
 ```
 
 **P2 — tu marca.** «¿Cómo se llama tu marca y cómo la escriben mal?»
@@ -154,9 +159,9 @@ los primeros puestos. Genera candidatos; nunca clasifica.
 ### 2.3 La ficha del negocio
 
 Gobierna G1, G1b, G2 y G3, y tiene **formato fijo**: cada tema se copia con el número que le puso el dueño, tal cual
-(si partió un tema, se copia partido); «No vende» lleva **sólo** lo marcado 3 y lo que P1 dice que no vende; lo que
-infieras va en «Supuestos» y en ninguna otra línea. El informe la devuelve completa al final, para pegarla en la
-próxima auditoría:
+(si partió un tema, se copia partido); «No vende» lleva **sólo** lo marcado 3 y lo que P1 dice que no vende; cada
+línea lleva sólo lo que el dueño dijo, con sus palabras, sin paréntesis ni glosa tuya; toda explicación o inferencia
+va en «Supuestos». El informe la devuelve completa al final, para pegarla en la próxima auditoría:
 
 ```
 FICHA DEL NEGOCIO — <fecha>
@@ -174,8 +179,8 @@ Supuestos (míos, no del dueño): <…>
 
 ## 3. Qué necesitas
 
-**Ninguna credencial**: sólo archivos que exportas de la interfaz. Si alguien te pide la contraseña, un token o acceso
-a tu cuenta publicitaria para «auditarla automáticamente», eso es un problema de seguridad.
+**Ninguna credencial**: sólo archivos exportados de la interfaz. Pedir contraseña, token o acceso para «auditar
+automáticamente» es un problema de seguridad.
 
 **El export mínimo:** Informes → Términos de búsqueda → últimos 90 días → Descargar → CSV, con estas columnas
 (añádelas en «Columnas»): Término de búsqueda · Campaña · Clics · Costo · **Conversiones** · **Todas las
@@ -215,15 +220,15 @@ una cuenta chilena.
    Conversiones fraccionarias (`0,33`, `11,89`) se leen como decimal, nunca `int()`.
 4. Busca las columnas **por significado**. Las palabras clave de frase vienen entre comillas dobles: quítalas para
    comparar, pero son su tipo de concordancia.
-5. Si el archivo se leyó en **una sola columna**, el delimitador está mal: «no pude leerlo» y «no hay nada» son
-   resultados distintos.
+5. Leído en **una sola columna** = delimitador equivocado: «no pude leerlo» no es «no hay nada».
 6. Clics > impresiones → fila `ARTEFACTO`, fuera del CTR (**[medido]** 7 filas con 2 clics sobre 1 impresión
    envenenaban el detector). El mismo término en varias campañas se suma para las compuertas, pero **guarda la vista
    sin sumar**: ahí vive 5.3. La columna de valor, si existe, se lee siempre.
 7. **Cuentas.** Si el entorno ejecuta código (análisis de datos de ChatGPT, herramienta de análisis de Claude),
-   **todas** las cuentas se hacen ahí y no se rehacen a mano. Sin código, calculas —y muestras la cuenta— sólo de los
-   números que sostienen una recomendación o una negativa: cada suma nombra sus filas o dice «n términos» y se cuadra
-   con la fila de total. El resto sale sin número derivado. Conversiones con los decimales del archivo.
+   **todas** las cuentas se hacen ahí y no se rehacen a mano; junto a cada total se imprime la lista de términos que
+   entraron (o el filtro y su conteo), sin lo que el dueño ya clasificó en otra parte. Sin código, calculas —y
+   muestras la cuenta— sólo de los números que sostienen una recomendación o una negativa: cada suma nombra sus filas
+   o dice «n términos» y se cuadra con el total; conversiones con sus decimales. El resto sale sin número derivado.
 
 ## 5. Cobertura: cuánto del dinero NO estás viendo (va en el encabezado)
 
@@ -438,9 +443,10 @@ esperadas ≥ 3,0 y CVR < base/3     → bajar puja, no negativar
 esperadas < 3,0                    → «SIN EVIDENCIA», a un anexo agregado
 ```
 
-Ejemplo (cifras ilustrativas): 30 clics × CVR base 10 % = 3,0; $26.000 ÷ CPA base $10.000 = 2,6 → esperadas = **2,6**:
-bajo 3,0, «SIN EVIDENCIA», aunque la prueba de clics diera 3,0. Atajo: las esperadas nunca superan costo ÷ CPA base;
-si el término de más costo de un grupo no llega a 3,0 por esa vía, ninguno del grupo llega y G8 no pide más cálculo.
+Escribe siempre las dos cifras y la menor (ilustrativo): `30 × 10 % = 3,0 · 26.000 ÷ 10.000 = 2,6 → 2,6`, bajo 3,0:
+«SIN EVIDENCIA». No se reduce a una sola: costo ÷ CPA base es la menor sólo cuando el CPC del término está bajo el de
+la base. Atajo: las esperadas nunca superan costo ÷ CPA base; si el término de más costo de un grupo no llega a 3,0
+por esa vía, ninguno del grupo llega y G8 no pide más cálculo.
 
 **[medido]** términos que llegaron aquí en las cuatro cuentas: **cero**. Con pocos clics, la mejor estimación de la
 CVR no es cero: `(conversiones + k × CVR_base) ÷ (clics + k)`, con `k ≈ 40` (ajustado en cuatro cuentas entre 30 y 80
@@ -569,8 +575,7 @@ Herramientas → **Historial de cambios** → el rango de las dos ventanas → D
    rinde mal con su página a revisar.
 6. **Rendimiento (G8)**: casi siempre «sin evidencia», agregado.
 7. **Evaluado sin hallazgo** y **NO EVALUABLE**, cada uno de estos con su dinero.
-8. **Decisiones pendientes del dueño**: competidores «no sé», términos con conversión en un balde, nombres sin
-   clasificar.
+8. **Decisiones pendientes del dueño**: competidores «no sé», términos con conversión en un balde, nombres sueltos.
 9. La recomendación, sólo si disparó un gatillo (abajo), y la línea de procedencia.
 10. **La ficha del negocio**, completa: *«Guarda esta ficha y pégala al comienzo de tu próxima auditoría.»*
 
@@ -654,20 +659,18 @@ número y su muestra.
 
 ## 15. El informe gráfico, cuando el entorno lo permite
 
-El texto sale siempre. Si el entorno puede entregar un archivo (ChatGPT con lienzo o intérprete de código, Claude con
-artefactos), entrega además una **página HTML autocontenida**; si no puedes generarla, no la anuncies. Arriba, el
-encabezado de honestidad; los hallazgos como **barras proporcionales al dinero**, en orden de palanca, **con la cifra
-al lado**; lo `NO EVALUABLE` en gris y con su razón; cuerpo de 16 px o más, legible en teléfono. **Cero dependencias
-de internet** (CSS embebido, barras con `div`, sin CDN, fuentes remotas ni analítica): es la cuenta de alguien. Rojo o
-ámbar lo que sangra, verde lo que funciona, gris lo no evaluado, y nunca el color como única señal. La marca de quien
-publica el skill, sólo arriba y en la procedencia.
+El texto sale siempre. Si el entorno puede entregar un archivo, entrega además una **página HTML autocontenida**; si
+no puedes, no la anuncies. Arriba, el encabezado de honestidad; los hallazgos como **barras proporcionales al
+dinero**, en orden de palanca, **con la cifra al lado**; lo `NO EVALUABLE` en gris y con su razón; cuerpo de 16 px o
+más, legible en teléfono. **Cero dependencias de internet** (CSS embebido, barras con `div`, sin CDN, fuentes remotas
+ni analítica): es la cuenta de alguien. Rojo o ámbar lo que sangra, verde lo que funciona, gris lo no evaluado, nunca
+el color solo. La marca del skill, sólo arriba y en la procedencia.
 
 ## 16. Lo que este skill NO resuelve
 
 - **No ejecuta nada** ni toca tu cuenta. **No ve el 60–90 % de tu dinero** si tienes Performance Max o Shopping: ahí
   hay feed, señales de audiencia, creatividades y estructura — otro oficio.
-- **No arregla tu página.** Cuando el problema está después del clic —lo más frecuente—, lo que sigue es rehacer una
-  oferta, una ficha o un formulario.
+- **No arregla tu página** (cuando el problema está después del clic, lo más frecuente).
 - **No sabe si contestas el teléfono** (en servicios locales, la mitad de las «no conversiones» es atención), y **no
   reemplaza a alguien mirando la cuenta cada semana**: un archivo es una foto.
 
