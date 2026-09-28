@@ -43,13 +43,13 @@ cuentas: sin el programa no hay totales ni negativas de frase.
 - **Protege tu núcleo.** Lo que marcas como servicio principal nunca recibe «pausa», «negativa» ni «baja la puja» por
   rendimiento. Si rinde mal, lo que se revisa es la página, la medición o el valor de la conversión.
 - **Limpia primero las búsquedas de otro negocio**: empleo y freelance, «gratis», cursos y tutoriales, hazlo tú
-  mismo, otras ciudades, marketplaces, otros rubros y los competidores donde no quieres aparecer. Salen como
-  negativas de frase en listas temáticas, listas para pegar, con cada término que bloquean a la vista. Estas no
-  necesitan volumen: las decide tu negocio, no los números.
+  mismo, marketplaces, otros rubros y los competidores donde no quieres aparecer. Salen en listas temáticas, listas
+  para pegar, con cada término que bloquean a la vista. Estas no necesitan volumen: las decide tu negocio, no los
+  números. Las búsquedas de otras ciudades salen aparte, para que las confirmes: nunca se cortan solas.
 - **Revisa dónde se gasta** (con el informe de ubicaciones): lo que cae fuera de tu zona sale para confirmar, como
-  exclusión de ubicación, y el tráfico por «área de interés» se compara con el físico antes de sugerir nada. En 7 de
-  8 cuentas medidas que lo usaban, ese tráfico convertía en proporción a su costo: cambiar a «Presencia» por regla
-  corta ventas.
+  exclusión de ubicación, y el tráfico por «área de interés» se compara con el físico antes de sugerir nada. En 8 de
+  17 cuentas medidas había tráfico por interés, y en 7 convertía en proporción a su costo: cambiar a «Presencia» por
+  regla corta ventas.
 - **Pregunta por cada competidor**: *«¿quieres aparecer cuando buscan a X?»* No → negativa. Sí → campaña propia. No
   sé → te muestra sus números. Un nombre que no conoce nunca se decide solo.
 - **Después busca el dinero grande**, que casi nunca está en una negativa por rendimiento:
@@ -57,9 +57,9 @@ cuentas: sin el programa no hay totales ni negativas de frase.
 | Palanca | Cuánto movió, medido |
 |---|---|
 | La medición estaba mal configurada | **20,6×** entre las dos columnas de conversión, en una cuenta |
-| Un grupo de anuncios roto por dentro | **67 % del gasto** de una cuenta, en 3 grupos |
-| La misma consulta comprada por varias campañas | **18,2 %** del gasto, con CPC hasta 24× distinto |
-| El tipo de concordancia | **15,7 %** del gasto en exceso de CPA |
+| Un grupo de anuncios roto por dentro | **67 %** del gasto visible en el archivo, en 3 grupos, en una cuenta |
+| La misma consulta comprada por varias campañas | **18,2 %** del gasto visible en el informe, con CPC 24× distinto, en una cuenta |
+| El tipo de concordancia | **15,7 %** del gasto visible en el informe, en exceso de CPA, en una cuenta |
 
 En las cuatro cuentas donde se midió término por término (florería, ferretería, control de plagas y seguridad
 privada), **cero** términos tenían datos suficientes para negativarse por rendimiento. Por eso el skill separa dos
@@ -68,9 +68,9 @@ nunca alcanzan para cortar.
 
 ## Tres errores caros que evita
 
-**`temu` coincide dentro de `TEMUCO`.** Una lista de marketplaces aplicada como negativa por substring borra
-`flores a domicilio temuco` —2 conversiones—; la trampa de la frontera de palabra apareció en 7 de las 8 cuentas
-medidas. En un e-commerce, `free` coincidía dentro de `zodiac freerider`, un limpiafondos de piscina: 43 términos y 4
+**`temu` coincide dentro de `TEMUCO`.** Si una revisión busca marketplaces por letras, marca como ajena
+`flores a domicilio temuco`, que tenía 2 conversiones, y negativarla cortaría ventas; esa trampa apareció en 7 de las
+8 cuentas medidas. En un e-commerce, `free` coincidía dentro de `zodiac freerider`, un limpiafondos de piscina: 43 términos y 4
 conversiones. Antes de proponer una negativa, el skill la simula contra todo el archivo.
 
 **La columna «Conversiones» depende de cómo se configuró.** En una ferretería marcaba 8,61 mientras «Todas las
@@ -97,11 +97,11 @@ Para esa pregunta, quien descarga CSV ve más que quien consulta la API.
 ## Lo que este skill NO resuelve
 
 - **No ejecuta nada.** No toca tu cuenta. Todo lo aplicas tú.
-- **No ve el 60–90 % de tu dinero** si tienes Performance Max o Shopping: ahí hay feed, señales de audiencia y
+- **Puede no ver la mayor parte de tu dinero** si tienes Performance Max o Shopping: ahí hay feed, señales de audiencia y
   estructura — otro oficio.
 - **No arregla tu página.** Cuando el problema está después del clic, lo que sigue es rehacer una oferta o un
   formulario.
-- **No sabe si contestas el teléfono.** En servicios locales, la mitad de las «no conversiones» es atención.
+- **No sabe si contestas el teléfono.** Lo que pasa después del contacto no está en el informe.
 - **No reemplaza a alguien mirando la cuenta cada semana.** Un archivo es una foto.
 
 Si al correrlo descubres que lo que falta es ejecutar —la medición, la estructura, lo que pasa después del clic—,

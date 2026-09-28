@@ -1,5 +1,15 @@
 # Cambios
 
+## v3.0.1 — 2026-09-28
+
+Sólo el README; `SKILL.md` y `auditor.py` no cambian.
+
+- **Otras ciudades no son negativas listas:** salen aparte, para que las confirmes, como ya hacía el programa.
+- **Cifras con su alcance:** la tabla dice que cada número es de una cuenta y sobre el gasto que el informe ve; el
+  caso `temu`/Temuco queda con 2 conversiones y 7 de 8 cuentas, y el de ubicaciones con 8 de 17 cuentas.
+- **Fuera una afirmación sin fuente** («la mitad de las no conversiones es atención») y una contradicción (60–90 %
+  contra el 3,4 % de la misma página).
+
 ## v3.0 — 2026-09-27
 
 - **La IA etiqueta, el programa decide.** Nuevo `auditor.py` (Python estándar, sin internet): lee el export, arma los
